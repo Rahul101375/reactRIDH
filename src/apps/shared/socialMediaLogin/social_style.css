@@ -1,0 +1,7 @@
+.icon-only-google-button > button > div > div:last-child {
+    display: none;
+  }
+  .textColor{
+    color: black !important;
+  }
+  

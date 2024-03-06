@@ -1,0 +1,379 @@
+{
+    "tabs": [
+        {
+            "id": "programview",
+            "label": "Program View",
+            "icon": "",
+            "endPoint": "impact-summary/card",
+            "isChecked": true,
+            "child": [
+                {
+                    "id": "impactSummary",
+                    "label": "impact Summary",
+                    "icon": "",
+                    "endPoint": "programview/impact-summary/",
+                    "endPointList":["card","pie-chart","group-bar-chart","country"],
+                    "isChild": true,
+                    "subChild": []
+                },
+                {
+                    "id": "socialImpact",
+                    "label": "Social Impact",
+                    "icon": "",
+                    "endPoint": "programview/social-impact/",
+                    "endPointList":["card","pie-chart","group-bar-chart","stacked-bar-chart","timeline"],
+                    "isChild": false,
+                    "subChild": [
+                        {
+                            "id": "overAll",
+                            "label": "Overall",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": true
+                        },
+                        {
+                            "id": "worker Welfare",
+                            "label": "Worker Welfare",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "womenEmpowerment",
+                            "label": "Women Empowerment",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "ohs",
+                            "label": "OHS",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        }
+                    ]
+                },
+                {
+                    "id": "enviromentalImpact",
+                    "label": "Enviromental Impact",
+                    "icon": "",
+                    "endPoint": "",
+                    "isChild": true,
+                    "subChild": [
+                        {
+                            "id": "energy",
+                            "label": "Energy",
+                            "icon": "",
+                            "endPoint": "programview/environmental-impact/",
+                            "endPointList":["donut-chart","pie-chart","group-bar-chart","timeline"],
+                            "isSubChecked": true
+                        },
+                        {
+                            "id": "water",
+                            "label": "Weter",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "chemical",
+                            "label": "Chemical",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "countryview",
+            "label": "Country View",
+            "icon": "",
+            "endPoint": "",
+            "isChecked": false,
+            "child": [
+                {
+                    "id": "impactSummary",
+                    "label": "Impact Summary",
+                    "icon": "",
+                    "endPoint": "countryview/performance-impact/",
+                    "endPointList":["card","pie-chart","group-bar-chart","country"],
+                    "isChild": true,
+                    "subChild": []
+                },
+                {
+                    "id": "socialImpact",
+                    "label": "Social Impact",
+                    "icon": "",
+                    "endPoint": "countryview/social-impact/",
+                    "isChild": false,
+                    "endPointList":["card","pie-chart","stacked-bar-chart","timeline","group-bar-chart"],
+                    "subChild": [
+                        {
+                            "id": "overAll",
+                            "label": "Overall",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": true
+                        },
+                        {
+                            "id": "worker Welfare",
+                            "label": "Worker Welfare",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "womenEmpowerment",
+                            "label": "Women Empowerment",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "ohs",
+                            "label": "OHS",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        }
+                    ]
+                },
+                {
+                    "id": "enviromentalImpact",
+                    "label": "Enviromental Impact",
+                    "icon": "",
+                    "endPoint": "countryview/environmental-impact/",
+                    "endPointList":["pie-chart","donut-chart","timeline","group-bar-chart"],
+                    "isChild": false,
+                    "subChild": [
+                        {
+                            "id": "energy",
+                            "label": "Energy",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": true
+                        },
+                        {
+                            "id": "water",
+                            "label": "Weter",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "chemical",
+                            "label": "Chemical",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        }
+                    ]
+                },
+                {
+                    "id": "ipList",
+                    "label": "IP List",
+                    "icon": "",
+                    "endPoint": "industrialpark/list"
+                },
+                {
+                    "id": "factoryList",
+                    "label": "Factory List",
+                    "icon": "",
+                    "endPoint": "factory/list"
+                }
+            ]
+        },
+        {
+            "id": "ipview",
+            "label": "IP View",
+            "icon": "",
+            "endPoint": "",
+            "isChecked": false,
+            "child": [
+                {
+                    "id": "impactSummary",
+                    "label": "impact Summary",
+                    "icon": "",
+                    "endPoint": "ipview/performance-impact/",
+                    "endPointList":["card","pie-chart","group-bar-chart","country"],
+                    "subChild": []
+                },
+                {
+                    "id": "socialImpact",
+                    "label": "Social Impact",
+                    "icon": "",
+                    "endPoint": "ipview/social-impact/",
+                    "endPointList":["card","pie-chart","group-bar-chart","stacked-bar-chart","timeline"],
+                    "subChild": [
+                        {
+                            "id": "overAll",
+                            "label": "Overall",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": true
+                        },
+                        {
+                            "id": "worker Welfare",
+                            "label": "Worker Welfare",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "womenEmpowerment",
+                            "label": "Women Empowerment",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "ohs",
+                            "label": "OHS",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        }
+                    ]
+                },
+                {
+                    "id": "enviromentalImpact",
+                    "label": "Enviromental Impact",
+                    "icon": "",
+                    "endPoint": "ipview/environmental-impact/",
+                    "endPointList":["pie-chart","group-bar-chart","donut-chart","timeline"],
+                    "subChild": [
+                        {
+                            "id": "energy",
+                            "label": "Energy",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": true
+                        },
+                        {
+                            "id": "water",
+                            "label": "Weter",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "chemical",
+                            "label": "Chemical",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        }
+                    ]
+                },
+                {
+                    "id": "factoryList",
+                    "label": "Factory List",
+                    "icon": "",
+                    "endPoint": "factory/list"
+                }
+            ]
+        },
+        {
+            "id": "factoryview",
+            "label": "Factroy View",
+            "icon": "",
+            "endPoint": "",
+            "isChecked": false,
+            "child": [
+                {
+                    "id": "impactSummary",
+                    "label": "impact Summary",
+                    "icon": "",
+                    "endPoint": "factoryview/performance-impact/",
+                    "endPointList":["card","pie-chart","group-bar-chart","country"],
+                    "isChild": true,
+                    "subChild": []
+                },
+                {
+                    "id": "socialImpact",
+                    "label": "Social Impact",
+                    "icon": "",
+                    "endPoint": "factoryview/social-impact/",
+                    "endPointList":["card","pie-chart","group-bar-chart","stacked-bar-chart","timeline"],
+                    "isChild": false,
+                    "subChild": [
+                        {
+                            "id": "overAll",
+                            "label": "Overall",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": true
+                        },
+                        {
+                            "id": "worker Welfare",
+                            "label": "Worker Welfare",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "womenEmpowerment",
+                            "label": "Women Empowerment",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "ohs",
+                            "label": "OHS",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        }
+                    ]
+                },
+                {
+                    "id": "enviromentalImpact",
+                    "label": "Enviromental Impact",
+                    "icon": "",
+                    "endPoint": "factoryview/environmental-impact/",
+                    "endPointList":["pie-chart","group-bar-chart","donut-chart","timeline"],
+                    "isChild": false,
+                    "subChild": [
+                        {
+                            "id": "energy",
+                            "label": "Energy",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": true
+                        },
+                        {
+                            "id": "water",
+                            "label": "Weter",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        },
+                        {
+                            "id": "chemical",
+                            "label": "Chemical",
+                            "icon": "",
+                            "endPoint": "",
+                            "isSubChecked": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "buttons": [
+        {
+            "id": "button1",
+            "label": "Button 1",
+            "action": "handleButton1Click"
+        },
+        {
+            "id": "button2",
+            "label": "Button 2",
+            "action": "handleButton2Click"
+        }
+    ]
+}

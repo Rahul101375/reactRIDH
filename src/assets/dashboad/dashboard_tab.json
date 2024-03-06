@@ -1,0 +1,36 @@
+{
+    "tabs": [
+        {
+            "id": "programView",
+            "label": "Program View",
+            "icon": ""
+        },
+        {
+            "id": "countryView",
+            "label": "Country View",
+            "icon": ""
+        },
+        {
+            "id": "ipView",
+            "label": "IP View",
+            "icon": ""
+        },
+        {
+            "id": "factoryView",
+            "label": "Factroy View",
+            "icon": ""
+        }
+    ],
+    "buttons": [
+        {
+            "id": "button1",
+            "label": "Button 1",
+            "action": "handleButton1Click"
+        },
+        {
+            "id": "button2",
+            "label": "Button 2",
+            "action": "handleButton2Click"
+        }
+    ]
+}

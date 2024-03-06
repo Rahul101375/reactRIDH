@@ -15,8 +15,11 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import {NavLink} from 'react-router-dom';
+import CommonFormDialog from '../shared/common_dailog';
+import MessageInfoComponent from '../shared/api_message';
+import CommonMatMenuComponent from '../shared/common_mat_menu';
 
-export const globalInfoData = createContext()
+const globalInfoData = createContext()
 
 
 const drawerWidth = 240;
@@ -27,10 +30,12 @@ const navItems = [
   {label:"Impact Stories",path:"impact-stories"},
   {label:"About Us",path:"about"},
   {label:"Our Partners",path:"ourpartners"},
-  {label:"Join Now",path:"login"},
-  {label:"Login",path:"login"}
+  {label:"Join Now",path:""},
+  {label:"Login",path:""},
+  // {label:"Profile",path:""},
+  // {label:"Class Component",path:"class-component"}
 ];
-const dialogOpen = ['Join Now','Login'];
+const dialogOpen = ['Join Now','Login','Profile'];
 
 
 
@@ -39,17 +44,51 @@ const dialogOpen = ['Join Now','Login'];
 function HeaderComponent(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [types, setTypes] = React.useState('');
+  const successMessage = 'This is a success message.';
+  const joinNowFormFields = [
+    { name: 'name', label: 'Name', type: 'text',placeholder:'Enter Your Name' },
+    { name: 'email', label: 'Email', type: 'email' ,placeholder:'Example@gmial.com'},
+    { name: 'country', label: 'Country', type: 'select', options: ['USA', 'Canada', 'UK', 'Australia'] ,placeholder:'Enter Your Country'},
+    { name: 'mobileNumber', label: 'Mobile Number', type: 'text' ,placeholder:'Enter Your Mobile Number'},
+    { name: 'type', label: 'I am a', type: 'select', options: ['Government official', 'Researcher', 'Researcher', 'Other'] ,placeholder:'Enter Your Profession'},
+    { name: 'password', label: 'Password', type: 'password' ,placeholder:'Enter Your Password'},
+    { name: 'confirmPassword', label: 'Confirm Password', type: 'password' ,placeholder:'Confirm Password'},
+    // { name: 'descriptions', label: 'Descriptions', type: 'text' ,placeholder:'Descriptions'},
+    // { name: 'birthDate', label: 'Birth Date', type: 'date' ,placeholder:'Enter Date'},
+    // { name: 'gender', label: 'Gender', type: 'radio-group', options: ['Male', 'Female', 'Other'] ,placeholder:'Chose Your Gender'},
+    // { name: 'interests', label: 'Interests', type: 'checkbox', options: ['Reading', 'Sports', 'Music'] ,placeholder:'Select Your Hobby'},
+    // { name: 'country', label: 'Country', type: 'select', options: ['USA', 'Canada', 'UK', 'Australia'] ,placeholder:'Enter Your Country'},
+  ];
+  const loginFormFields = [
+    { name: 'email', label: 'Email', type: 'email' ,placeholder:'Example@gmial.com'},
+    { name: 'password', label: 'Password', type: 'password' ,placeholder:'Enter Your Password'},
+    { name: 'captch', label: 'Captcha', type: 'text',placeholder:'Enter Captcha' },
 
+  ];
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
   const [isOpenDialog,setIsOpenDialog] = useState(false)
 
 const openCommonPop=(type)=>{
-  setIsOpenDialog(true)
+  setIsOpenDialog(type !== 'Profile' ? (type == '' ? !isOpenDialog : true) : true);
+  setTypes(type);
 }
 const transforData = (item)=>{
   console.warn(item)
+}
+
+const contextValue =  types !== 'Profile' ? {
+  isOpenDialog:isOpenDialog,
+  openCommonPop,
+  commonFormFields : types === 'Login' ? loginFormFields : joinNowFormFields,
+  title: types === 'Login' ? 'Welcome to IDH-INSTEP' : 'New Member',
+  subTitle: types === 'Login' ? 'Existing Members' : 'Please fill up the form to sign up',
+  imageIcon: true,
+  buttonText : types === 'Login' ? "Login" : "Signup"
+} : {
+   isProfile : isOpenDialog
 }
 
   const drawer = (
@@ -94,7 +133,7 @@ const transforData = (item)=>{
           >
             MUI
           </Typography>
-          <globalInfoData.Provider value={{ isOpen : isOpenDialog, transforData:transforData }}>
+          <globalInfoData.Provider value={contextValue}>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
                 <Button key={item?.label} sx={{ color: '#000' }}>
@@ -117,6 +156,8 @@ const transforData = (item)=>{
                 </Button>
               ))}
             </Box>
+            <CommonFormDialog></CommonFormDialog>
+            <CommonMatMenuComponent />
           </globalInfoData.Provider>
           
         </Toolbar>
@@ -142,16 +183,19 @@ const transforData = (item)=>{
         <Toolbar />
         
       </Box>
+    {
+      isOpenDialog && (
+
+  <MessageInfoComponent type="success" message={successMessage} ></MessageInfoComponent>
+      )
+    }
     </Box>
   );
 }
 
 HeaderComponent.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 
 export default HeaderComponent;
+export {globalInfoData}
