@@ -85,7 +85,7 @@ export default function CommonMatMenuComponent(props) {
             
         </MenuItem>
         <MenuItem onClick={(e)=>{handleClick(e,"account")}}>
-          <Avatar /> My account
+          <Avatar /><NavLink to="/chat" className="nav-bar-link textColor" >Communications</NavLink>
         </MenuItem>
         <Divider />
         <MenuItem onClick={(e)=>{handleClick(e,"Add another account")}}>

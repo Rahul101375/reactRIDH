@@ -22,6 +22,7 @@
     "dayjs": "^1.11.10",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
+    "party-js": "^2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.2.1",
@@ -30,6 +31,8 @@
     "react-social-login-buttons": "^4.1.0",
     "react-svg-worldmap": "^2.0.0-alpha.16",
     "reactjs-social-login": "^2.6.3",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4",
     "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },

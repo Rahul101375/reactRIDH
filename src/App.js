@@ -11,6 +11,9 @@ import AddUserComponent from './apps/admin/userManagement/addUser';
 import PolicyComponent from './apps/admin/userManagement/policy';
 import LifeCycleMethodImplemention from './apps/classComponent/lifeCycle';
 import {UserProfileComponent}  from './apps/shared/socialMediaLogin/profile_info';
+import Chat from './apps/pages/chat';
+// import ChatRoom from './apps/chatRoom/chatroom';
+// import Home from './apps/home/home';
 
 
 
@@ -22,6 +25,8 @@ function App() {
     
         <Routes>
         <Route path="/" element={<HomeComponent />}></Route>
+        {/* <Route exact path="/" element={<Home />} />
+        <Route exact path="/:roomId" element={<ChatRoom />} /> */}
         <Route path="/about" element={<AboutComponent />}></Route>
         <Route path="/ourpartner" element={<OurPartnerComponent />}></Route>
         <Route path="/dashboard" element={<DashboardComponent />}></Route>
@@ -31,6 +36,7 @@ function App() {
         <Route path="/policy:id" element={<PolicyComponent />}></Route>  
         <Route path='/class-component' element={<LifeCycleMethodImplemention />}></Route>
         <Route path='/profile' element={<UserProfileComponent />}></Route>
+        <Route path='/chat' element={<Chat />} ></Route>
 
         {/* <Route path="/*" element={<Page404Component />}></Route>   this line of code to rediect to  Page404Component*/}
         {/* if you want to move another page not Page404Component */}   <Route path="/*" element={<Navigate to='/' />}></Route>
@@ -38,6 +44,7 @@ function App() {
       </Router>
 
       {/* <UserProfileComponent></UserProfileComponent> */}
+    
         
     </>
   );

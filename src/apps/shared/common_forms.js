@@ -16,6 +16,10 @@ import Paper from '@mui/material/Paper';import LoaderComponent from './loader';
 import { Typography } from '@mui/material';
 import GoogleLoginComponent from './socialMediaLogin/google';
 import FaceBookLoginComponent from './socialMediaLogin/facebook';
+import TwitterLoginComponent from './socialMediaLogin/twitter';
+import InstagramLoginComponent from './socialMediaLogin/instrgram';
+import LinkedInLoginComponent from './socialMediaLogin/linkedIn';
+import GithubLoginComponent from './socialMediaLogin/github';
 
 
 
@@ -174,14 +178,24 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                        
                     </Grid>
                 </Grid>
-                <Grid container justifyContent="center">
-                    <Grid item xs={12} style={{textAlign:'center'}}>
-                        <Item style={{margin:'0px'}}>
-                            <GoogleLoginComponent />
-                            <FaceBookLoginComponent/>
-                        </Item>
-                    </Grid>
-                </Grid>
+                {
+                    buttonText == 'Login' && (
+                        <Grid container justifyContent="center">
+                            <Grid item xs={12} style={{ textAlign: 'center' }}>
+                                <Item style={{ margin: '0px' }}>
+                                    <div style={{display:'flex',justifyContent:'center',padding:'5px'}}>
+                                    <GoogleLoginComponent />
+                                    <FaceBookLoginComponent />
+                                    <TwitterLoginComponent />
+                                    <InstagramLoginComponent />
+                                    <LinkedInLoginComponent />
+                                    <GithubLoginComponent />
+                                    </div>
+                                </Item>
+                            </Grid>
+                        </Grid>
+                    )
+                }
             </form>
 
         </Box>
