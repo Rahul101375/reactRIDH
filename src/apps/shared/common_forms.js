@@ -12,7 +12,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';import LoaderComponent from './loader';
+import Paper from '@mui/material/Paper';
+import LoaderComponent from './loader';
 import { Typography } from '@mui/material';
 import GoogleLoginComponent from './socialMediaLogin/google';
 import FaceBookLoginComponent from './socialMediaLogin/facebook';
@@ -156,7 +157,9 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                             </Grid>
                         ))
                     }
-                    <Grid item xs={12} style={{textAlign:'center'}}>
+                   {
+                    buttonText && (
+                        <Grid item xs={12} style={{textAlign:'center'}}>
                         <Button type="submit" variant="contained" >
                             {buttonText}
                         </Button>
@@ -177,6 +180,8 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                         </Typography>
                        
                     </Grid>
+                    )
+                   }
                 </Grid>
                 {
                     buttonText == 'Login' && (

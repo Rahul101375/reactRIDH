@@ -1,25 +1,23 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import { SnackbarProvider, useSnackbar } from 'notistack';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 
-function MyApp() {
-  const { enqueueSnackbar } = useSnackbar();
-
-  const handleClickVariant = (variant) => () => {
-    enqueueSnackbar('This is a success message!', { variant });
-  };
-
-  return (
-    <React.Fragment>
-      <Button onClick={handleClickVariant('success')}>Show success snackbar</Button>
-    </React.Fragment>
-  );
-}
-
-export default function IntegrationNotistack() {
-  return (
-    <SnackbarProvider maxSnack={3}>
-      <MyApp />
-    </SnackbarProvider>
+export default function CustomizedSnackbar({open,type,message,duration,snackbarClose}) {
+  setTimeout(()=>{
+    snackbarClose(false)
+  },duration)
+  
+   return (
+    <div>
+      <Snackbar open={open} autoHideDuration={duration}>
+        <Alert
+          severity={type}
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          {message} !
+        </Alert>
+      </Snackbar>
+    </div>
   );
 }

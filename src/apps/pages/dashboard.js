@@ -260,23 +260,6 @@ const DashboardComponent = ({ dashboardName }) => {
                 </Grid>
             </Box>
 
-            {/* <LoginSocialGoogle
-          client_id={process.env.REACT_APP_GG_APP_ID || ''}
-          onLoginStart={onLoginStart}
-          redirect_uri={REDIRECT_URI}
-          scope="openid profile email"
-          discoveryDocs="claims_supported"
-          access_type="offline"
-          onResolve={({ provider, data }) => {
-            setProvider(provider);
-            setProfile(data);
-          }}
-          onReject={err => {
-            console.log(err);
-          }}
-        >
-          <GoogleLoginButton />
-        </LoginSocialGoogle> */}
         </>
     )
 }

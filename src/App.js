@@ -12,6 +12,7 @@ import PolicyComponent from './apps/admin/userManagement/policy';
 import LifeCycleMethodImplemention from './apps/classComponent/lifeCycle';
 import {UserProfileComponent}  from './apps/shared/socialMediaLogin/profile_info';
 import Chat from './apps/pages/chat';
+import FooterComponent from './apps/layout/footer';
 // import ChatRoom from './apps/chatRoom/chatroom';
 // import Home from './apps/home/home';
 
@@ -42,9 +43,7 @@ function App() {
         {/* if you want to move another page not Page404Component */}   <Route path="/*" element={<Navigate to='/' />}></Route>
         </Routes>
       </Router>
-
-      {/* <UserProfileComponent></UserProfileComponent> */}
-    
+    <FooterComponent />
         
     </>
   );
