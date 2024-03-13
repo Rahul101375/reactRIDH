@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { purple } from '@mui/material/colors';
+import { NavLink } from 'react-router-dom';
 
 const BootstrapButton = styled(Button)({
   boxShadow: 'none',
@@ -48,14 +49,14 @@ const ColorButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const CustomizedButtons=(props)=> {
+const CustomizedButtons = (props) => {
   return (
-    <Stack spacing={2} direction="row">
-      <ColorButton variant="contained">{props.buttonText}</ColorButton>
-      {/* <BootstrapButton variant="contained" disableRipple >
-        Bootstrap
-      </BootstrapButton> */}
-    </Stack>
+    <>
+      <NavLink to={props.nextPage}>
+        <ColorButton variant="contained">{props.buttonText}</ColorButton>
+      </NavLink>
+
+    </>
   );
 }
 

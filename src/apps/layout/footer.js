@@ -34,7 +34,7 @@ const FooterComponent = () => {
 
                 {
                     email && (
-                        <ApiCallComponent endpoint={'user/subscribe'} render={({ data, loading, error }) => (
+                        <ApiCallComponent endpoint={'user/subscribe'} render={({ data, loading, error  }) => (
                             <div>
                                 {loading && <p>Loading...</p>}
                                 {error && (
@@ -48,7 +48,7 @@ const FooterComponent = () => {
                                     </>
                                 )}
                             </div>
-                        )} />
+                        )} method='post' payload={email} />
                     )
                 }
                 <div>

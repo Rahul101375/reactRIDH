@@ -38,7 +38,7 @@ import { environment } from '../../environments/environment';
 
 const BASE_API_URL = environment.baseURL;
 
-const ApiCallComponent = ({ endpoint, render }) => {
+const ApiCallComponent = ({ endpoint, render,method,payload }) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -48,8 +48,26 @@ const ApiCallComponent = ({ endpoint, render }) => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get(apiUrl);
+               // eslint-disable-next-line default-case
+               let response
+               switch(method){
+                case 'post':  
+                 response = await axios.post(apiUrl,payload);
                 setData(response.data);
+                break;
+                case 'put':  
+                 response = await axios.put(apiUrl);
+                setData(response.data);
+                break;
+                case 'delete':  
+                 response = await axios.delete(apiUrl);
+                setData(response.data);
+                break;
+                default:  
+                 response = await axios.get(apiUrl);
+                setData(response.data);
+                break;
+               }
             } catch (err) {
                 console.log("error",err)
                 setError(err);
