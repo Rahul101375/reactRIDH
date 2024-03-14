@@ -53,3 +53,39 @@
 .hover-image > img:hover{
   transform: scale(1.1);
 }
+.photoBanner {
+  position:absolute; 
+  top:0px; 
+  left:0px; 
+  overflow:hidden; 
+  white-space: nowrap;
+  animation: bannerMove 10s linear infinite;
+}
+.photoBanner:hover {
+    animation-play-state: paused;
+}
+#container-4 {
+  height:250px; 
+  position: relative; 
+  overflow: hidden;
+}
+ 
+.photoBanner img {    
+  margin: 0 0.5em 
+}
+.partnerImg{
+  max-width: 150px;
+  height: auto;
+}
+@keyframes bannerMove {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translate(-50%, 0);
+  }
+}
+.member-img{
+  position: relative;
+}
+ 

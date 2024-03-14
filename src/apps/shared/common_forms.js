@@ -50,6 +50,7 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("common",e)
         onSubmit(formData);
     };
     const handleLogin = ()=>{
@@ -71,6 +72,7 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                         label={field.label}
                         placeholder={field.placeholder}
                         value={formData[field.name] || ''}
+                        required={field.isRequired}
                         onChange={(e) => handleChange(field.name, e.target.value)}
                         fullWidth
                     />
@@ -84,6 +86,7 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                         onChange={(value) => handleChange(field.name, value)}
                         renderInput={(params) => <TextField {...params} />}
                         fullWidth
+                        required={field.isRequired}
                     />
                 );
             case 'select':
@@ -95,6 +98,7 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                         placeholder={field.placeholder}
                         onChange={(e) => handleChange(field.name, e.target.value)}
                         fullWidth
+                        required={field.isRequired}
                     >
                         {field.options.map((option) => (
                             <MenuItem key={option} value={option}>
@@ -111,6 +115,7 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                                 checked={formData[field.name] || false}
                                 placeholder={field.placeholder}
                                 onChange={(e) => handleCheckboxChange(field.name, e.target.checked)}
+                                required={field.isRequired}
                                
                             />
                         }
@@ -126,6 +131,7 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                         placeholder={field.placeholder}
                         onChange={(e) => handleChange(field.name, e.target.value)}
                         fullWidth
+                        required={field.isRequired}
                     >
                         <div style={{ display: 'flex', justifyContent: 'space-between', margin: '0px 5px',padding:'8px' }}>
                             {field.options.map((option) => (
@@ -166,7 +172,7 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                         <Typography spacing={2} style={{padding:'10px'}}>
                             {
                                
-                                buttonText == 'Login' ?
+                                buttonText === 'Login' ?
                                     <>
                                          New User  ?  <strong variant="primary" style={{ cursor: 'pointer' }} onClick={()=>openCommonPop('Join Now')}>Register</strong>
 
@@ -184,7 +190,7 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                    }
                 </Grid>
                 {
-                    buttonText == 'Login' && (
+                    buttonText === 'Login' && (
                         <Grid container justifyContent="center">
                             <Grid item xs={12} style={{ textAlign: 'center' }}>
                                 <Item style={{ margin: '0px' }}>
