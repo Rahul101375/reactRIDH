@@ -1,5 +1,5 @@
 let base_uri2 = 'https://stgmotapi.dhwaniris.in/web/api/';
-let baseURL = "https://stg_idhinstep.dhwaniris.in/web/api/";
+let baseURL = "https://uat_idhinstep.dhwaniris.in/web/api/";
 //let baseURL = "http://192.168.200.68:3000/web/api/";   connection with local systems
 
 const googleClientId = "727908203106-olfsmch825o3h4lt7ds3ojev35g9uth5.apps.googleusercontent.com";
