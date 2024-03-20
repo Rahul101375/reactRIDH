@@ -5,6 +5,7 @@ import ApiCallComponent from '../apiService/common';
 import LoaderComponent from '../shared/loader';
 import './pages.css'
 import { Grid, Typography, Paper, styled } from '@mui/material';
+import * as CommonMethod from '../apiService/common_method'
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -49,9 +50,19 @@ const OurPartnerComponent = () => {
                                         {
                                             data && data.data && data.data.length && (
                                                 <>
-                                                    <div>
-                                         <Typography variant="h6" className="text-center">{ data.data[0].title}</Typography>
-                                      </div>
+                                                    <section className="partnerComp d-flex flex-column align-items-center justify-content-center mb-5">
+                                                        <div className="container-fluid">
+                                                            <div className="row justify-content-center">
+                                                                <div className="col-md-5">
+                                                                    <div className="col text-center mt-3">
+                                                                        <Typography variant="h3" className="text-white text-center">{data.data[0].title}</Typography>
+                                                                        <p className="text-white text-center" dangerouslySetInnerHTML={{ __html: CommonMethod.truncateText(data.data[0].subTitle, 500) }}></p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </section>
 
                                                     <section>
                                                         <Grid>
@@ -71,7 +82,7 @@ const OurPartnerComponent = () => {
                                                                                                     <Typography variant="h6" className="fw-bold text-center m-2" mattooltip={item.title}>{item.title}</Typography>
                                                                                                     <div className="m-3 fw-500">{item.description}</div>
                                                                                                 </div>
-                                                                                               
+
                                                                                             </div>
                                                                                         </>
                                                                                     ) : (

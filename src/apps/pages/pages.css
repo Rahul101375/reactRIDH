@@ -88,4 +88,40 @@
 .member-img{
   position: relative;
 }
+
+/* ourPartners css  start*/
+
+.partnerCard{
+  transition: .3s;
+}
+
+.partnerCard:hover{
+transform: translateY(-5px);
+}
+.partnerComp{
+  background-image: url('https://dhwani-staging.s3.ap-south-1.amazonaws.com/resources_a8e91690-e5c0-4cee-9c26-e6b36949e13b.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+   height: 300px;
+}
+/* end */
+
+/* about css start */
+
+.aboutSection{
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+.aboutSection::before{
+  content: '';
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* end */
  

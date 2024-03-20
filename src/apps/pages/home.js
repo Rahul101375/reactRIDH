@@ -39,7 +39,6 @@ const HomeComponent = () => {
         }
     }
     const handleFormSubmit = (e) => {
-       
         console.log("homePayload",homePayload,e)
         setHomePayload(e)
     }
