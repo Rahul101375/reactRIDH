@@ -32,8 +32,6 @@ const navItems = [
   {label:"Our Partners",path:"ourPartner"},
   {label:"Join Now",path:""},
   {label:"Login",path:""},
-  // {label:"Profile",path:""},
-  // {label:"Class Component",path:"class-component"}
 ];
 const dialogOpen = ['Join Now','Login','Profile'];
 
@@ -72,7 +70,7 @@ function HeaderComponent(props) {
   const [isOpenDialog,setIsOpenDialog] = useState(false)
 
 const openCommonPop=(type)=>{
-  setIsOpenDialog(type !== 'Profile' ? (type == '' ? !isOpenDialog : true) : true);
+  setIsOpenDialog(type !== 'Profile' ? (type === '' ? !isOpenDialog : true) : true);
   setTypes(type);
 }
 const transforData = (item)=>{

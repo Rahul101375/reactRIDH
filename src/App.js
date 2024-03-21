@@ -14,8 +14,8 @@ import {UserProfileComponent}  from './apps/shared/socialMediaLogin/profile_info
 import Chat from './apps/pages/chat';
 import FooterComponent from './apps/layout/footer';
 import ImpactStoriesComponent from './apps/pages/impactStories';
-// import ChatRoom from './apps/chatRoom/chatroom';
-// import Home from './apps/home/home';
+import RelatedStoryComponent from './apps/pages/resource'
+import ResourceComponent from './apps/pages/resource';
 
 
 
@@ -29,7 +29,7 @@ function App() {
         <Route path="/" element={<HomeComponent />}></Route>
         {/* <Route exact path="/" element={<Home />} />
         <Route exact path="/:roomId" element={<ChatRoom />} /> */}
-        <Route path="/about" element={<AboutComponent />}></Route>
+        <Route path="/about" exact element={<AboutComponent />}></Route>
         <Route path="/ourPartner" element={<OurPartnerComponent />}></Route>
         <Route path="/dashboard" element={<DashboardComponent />}></Route>
         <Route path="/addUser" element={<AddUserComponent />}></Route>
@@ -38,11 +38,12 @@ function App() {
         <Route path="/policy:id" element={<PolicyComponent />}></Route>  
         <Route path='/class-component' element={<LifeCycleMethodImplemention />}></Route>
         <Route path='/profile' element={<UserProfileComponent />}></Route>
-        <Route path='/impactStory' element={<ImpactStoriesComponent />}></Route>
-        <Route path='/impactStory:id' element={<ImpactStoriesComponent />}></Route>
+        <Route path='/impactStory'exact element={<ImpactStoriesComponent />}></Route>
+        <Route path='/relatedStories:id' exact element={<RelatedStoryComponent />}></Route>
+        <Route path='/resources' element={<ResourceComponent />}></Route>
         <Route path='/chat' element={<Chat />} ></Route>
 
-        {/* <Route path="/*" element={<Page404Component />}></Route>   this line of code to rediect to  Page404Component*/}
+        <Route path="/*" element={<Page404Component />}></Route>   
         {/* if you want to move another page not Page404Component */}   <Route path="/*" element={<Navigate to='/' />}></Route>
         </Routes>
       </Router>
