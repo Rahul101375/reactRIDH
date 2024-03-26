@@ -47,7 +47,7 @@ function App() {
         {/* if you want to move another page not Page404Component */}   <Route path="/*" element={<Navigate to='/' />}></Route>
         </Routes>
       </Router>
-    <FooterComponent />
+    {/* <FooterComponent /> */}
         
     </>
   );

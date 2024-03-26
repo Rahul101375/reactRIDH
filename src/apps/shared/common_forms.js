@@ -13,7 +13,6 @@ import Radio from '@mui/material/Radio';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import LoaderComponent from './loader';
 import { Typography } from '@mui/material';
 import GoogleLoginComponent from './socialMediaLogin/google';
 import FaceBookLoginComponent from './socialMediaLogin/facebook';
@@ -21,7 +20,7 @@ import TwitterLoginComponent from './socialMediaLogin/twitter';
 import InstagramLoginComponent from './socialMediaLogin/instrgram';
 import LinkedInLoginComponent from './socialMediaLogin/linkedIn';
 import GithubLoginComponent from './socialMediaLogin/github';
-
+import { useForm } from 'react-hook-form';
 
 
 
@@ -35,8 +34,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
+    const { register,handleSubmit, formState: { errors } } = useForm();
     const [formData, setFormData] = useState({});
-
     const handleChange = (name, value) => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
@@ -48,9 +47,8 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmitForm = (e) => {
         e.preventDefault();
-        console.log("common",e)
         onSubmit(formData);
     };
     const handleLogin = ()=>{
@@ -60,13 +58,16 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
         openCommonPop('XXXX')
     }
     
-    const renderField = (field) => {
+    const renderField = (field,register, errors) => {
         switch (field.type) {
             case 'text':
             case 'password':
             case 'email':
                 return (
                     <TextField
+                    {...register(field.name, { required: field.isRequired })}
+                    error={!!errors[field.name]}
+                    helperText={errors[field.name] ? `${field.label} is required` : ''}
                         type={field.type}
                         id={field.name}
                         label={field.label}
@@ -75,11 +76,14 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                         required={field.isRequired}
                         onChange={(e) => handleChange(field.name, e.target.value)}
                         fullWidth
-                    />
+                        />
                 );
             case 'date':
                 return (
                     <DatePicker
+                    {...register(field.name, { required: field.isRequired })}
+                    error={!!errors[field.name]}
+                    helperText={errors[field.name] ? `${field.label} is required` : ''}
                         label={field.label}
                         value={formData[field.name] || null}
                         placeholder={field.placeholder}
@@ -93,12 +97,16 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                 return (
 
                     <Select
+                    {...register(field.name, { required: field.isRequired })}
+                    error={!!errors[field.name]}
+                    helperText={errors[field.name] ? `${field.label} is required` : ''}
                         label={field.label}
                         value={formData[field.name] || ''}
                         placeholder={field.placeholder}
                         onChange={(e) => handleChange(field.name, e.target.value)}
                         fullWidth
                         required={field.isRequired}
+                       
                     >
                         {field.options.map((option) => (
                             <MenuItem key={option} value={option}>
@@ -109,14 +117,19 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
                 );
             case 'checkbox':
                 return (
-                    <FormControlLabel fullWidth
+                    <FormControlLabel 
+                    fullWidth
+                    
                         control={
                             <Checkbox
+                            {...register(field.name, { required: field.isRequired })}
+                            error={!!errors[field.name]}
+                             helperText={errors[field.name] ? `${field.label} is required` : ''}
                                 checked={formData[field.name] || false}
                                 placeholder={field.placeholder}
                                 onChange={(e) => handleCheckboxChange(field.name, e.target.checked)}
                                 required={field.isRequired}
-                               
+                                
                             />
                         }
                         style={{padding:"8px"}}
@@ -126,12 +139,16 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
             case 'radio-group':
                 return (
                     <RadioGroup
+                    {...register(field.name, { required: field.isRequired })}
+                    error={!!errors[field.name]}
+                     helperText={errors[field.name] ? `${field.label} is required` : ''}
                         name={field.name}
                         value={formData[field.name] || ''}
                         placeholder={field.placeholder}
                         onChange={(e) => handleChange(field.name, e.target.value)}
                         fullWidth
-                        required={field.isRequired}
+                        required={field.isRequired
+                        }
                     >
                         <div style={{ display: 'flex', justifyContent: 'space-between', margin: '0px 5px',padding:'8px' }}>
                             {field.options.map((option) => (
@@ -151,14 +168,15 @@ const CommonFormMaterial = ({ fields, onSubmit ,buttonText,openCommonPop}) => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            {/* <LoaderComponent isLoader='false'></LoaderComponent> */}
-            <form onSubmit={handleSubmit}>
+           
+            <form onSubmit={handleSubmitForm}>
                 <Grid container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }} >
                     {
                         fields.map((field) => (
                             <Grid item xs={12} sm={6} md={6} key={field.name} style={{ marginBottom: '16px' }}>
                                 <Item>
-                                    {renderField(field)}
+                                    {renderField(field,register, errors)}
+                                    
                                 </Item>
                             </Grid>
                         ))

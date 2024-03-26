@@ -45,23 +45,18 @@ function HeaderComponent(props) {
   const [types, setTypes] = React.useState('');
   const successMessage = 'This is a success message.';
   const joinNowFormFields = [
-    { name: 'name', label: 'Name', type: 'text',placeholder:'Enter Your Name' },
-    { name: 'email', label: 'Email', type: 'email' ,placeholder:'Example@gmial.com'},
-    { name: 'country', label: 'Country', type: 'select', options: ['USA', 'Canada', 'UK', 'Australia'] ,placeholder:'Enter Your Country'},
-    { name: 'mobileNumber', label: 'Mobile Number', type: 'text' ,placeholder:'Enter Your Mobile Number'},
-    { name: 'type', label: 'I am a', type: 'select', options: ['Government official', 'Researcher', 'Researcher', 'Other'] ,placeholder:'Enter Your Profession'},
-    { name: 'password', label: 'Password', type: 'password' ,placeholder:'Enter Your Password'},
-    { name: 'confirmPassword', label: 'Confirm Password', type: 'password' ,placeholder:'Confirm Password'},
-    // { name: 'descriptions', label: 'Descriptions', type: 'text' ,placeholder:'Descriptions'},
-    // { name: 'birthDate', label: 'Birth Date', type: 'date' ,placeholder:'Enter Date'},
-    // { name: 'gender', label: 'Gender', type: 'radio-group', options: ['Male', 'Female', 'Other'] ,placeholder:'Chose Your Gender'},
-    // { name: 'interests', label: 'Interests', type: 'checkbox', options: ['Reading', 'Sports', 'Music'] ,placeholder:'Select Your Hobby'},
-    // { name: 'country', label: 'Country', type: 'select', options: ['USA', 'Canada', 'UK', 'Australia'] ,placeholder:'Enter Your Country'},
+    { name: 'name', label: 'Name', type: 'text',placeholder:'Enter Your Name',isRequired : true },
+    { name: 'email', label: 'Email', type: 'email' ,placeholder:'Example@gmial.com',isRequired : true},
+    { name: 'country', label: 'Country', type: 'select', options: ['USA', 'Canada', 'UK', 'Australia'] ,placeholder:'Enter Your Country',isRequired : true},
+    { name: 'mobileNumber', label: 'Mobile Number', type: 'text' ,placeholder:'Enter Your Mobile Number',isRequired : true},
+    { name: 'type', label: 'I am a', type: 'select', options: ['Government official', 'Researcher', 'Researcher', 'Other'] ,placeholder:'Enter Your Profession',isRequired : true},
+    { name: 'password', label: 'Password', type: 'password' ,placeholder:'Enter Your Password',isRequired : true},
+    { name: 'confirmPassword', label: 'Confirm Password', type: 'password' ,placeholder:'Confirm Password',isRequired : true},
   ];
   const loginFormFields = [
-    { name: 'email', label: 'Email', type: 'email' ,placeholder:'Example@gmial.com'},
-    { name: 'password', label: 'Password', type: 'password' ,placeholder:'Enter Your Password'},
-    { name: 'captch', label: 'Captcha', type: 'text',placeholder:'Enter Captcha' },
+    { name: 'email', label: 'Email', type: 'email' ,placeholder:'Example@gmial.com',isRequired : true},
+    { name: 'password', label: 'Password', type: 'password' ,placeholder:'Enter Your Password',isRequired : true},
+    { name: 'captch', label: 'Captcha', type: 'text',placeholder:'Enter Captcha' ,isRequired : true},
 
   ];
   const handleDrawerToggle = () => {
